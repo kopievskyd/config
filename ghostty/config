@@ -1,3 +1,4 @@
+theme = light:kanso-pearl, dark:kanso-ink
 font-family = Iosevka Fixed
 font-size = 16
 term = xterm-256color
