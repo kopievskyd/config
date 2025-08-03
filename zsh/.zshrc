@@ -36,6 +36,7 @@ alias tree="tree -F --dirsfirst --noreport"
 alias ls="ls -F"
 
 # Completion setup
+fpath+=("$ZDOTDIR/completion")
 fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
 autoload -Uz compinit && defer compinit -d "$XDG_CACHE_HOME/.zcompdump"
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/.zcompcache"
