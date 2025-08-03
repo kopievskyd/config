@@ -1,3 +1,6 @@
+# Load functions
+source "$ZDOTDIR/functions/git_status.zsh"
+
 # History settings
 HISTSIZE=120000
 SAVEHIST=100000
@@ -42,3 +45,9 @@ zstyle ':fzf-tab:*' fzf-flags \
 # Enable plugins
 plug "zsh-users/zsh-syntax-highlighting"
 plug "Aloxaf/fzf-tab"
+
+# Enable prompt substitution
+setopt PROMPT_SUBST
+
+# Set prompt
+PS1='%F{magenta}%~%F{white}$(git_status) %F{%(?.default.red)}%(!.#.$)%f '
