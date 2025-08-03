@@ -1,5 +1,7 @@
 # Load functions
 source "$ZDOTDIR/functions/git_status.zsh"
+source "$ZDOTDIR/functions/defer.zsh"
+source "$ZDOTDIR/functions/plug.zsh"
 
 # History settings
 HISTSIZE=120000
@@ -35,7 +37,7 @@ alias ls="ls -F"
 
 # Completion setup
 fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
-autoload -Uz compinit && compinit -d "$XDG_CACHE_HOME/.zcompdump"
+autoload -Uz compinit && defer compinit -d "$XDG_CACHE_HOME/.zcompdump"
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/.zcompcache"
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu no
@@ -43,8 +45,8 @@ zstyle ':fzf-tab:*' fzf-flags \
     --no-info --no-separator --pointer='' --marker='  ' --color=fg:15,bg+:8
 
 # Enable plugins
-plug "zsh-users/zsh-syntax-highlighting"
-plug "Aloxaf/fzf-tab"
+defer plug "zsh-users/zsh-syntax-highlighting"
+defer plug "Aloxaf/fzf-tab"
 
 # Enable prompt substitution
 setopt PROMPT_SUBST
