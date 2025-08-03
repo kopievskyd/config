@@ -1,3 +1,5 @@
+require("loader").setup()
+
 local opt = vim.opt
 
 -- options
