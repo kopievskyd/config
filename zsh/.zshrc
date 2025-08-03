@@ -1,0 +1,44 @@
+# History settings
+HISTSIZE=120000
+SAVEHIST=100000
+HISTFILE="$XDG_STATE_HOME/.zsh_history"
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt SHARE_HISTORY
+setopt HIST_VERIFY
+
+# Export variables
+export VISUAL="nvim"
+export EDITOR="$VISUAL"
+
+# Add to PATH
+typeset -U path
+path=("$HOMEBREW_PREFIX/bin" $path)
+path=("$GOPATH/bin" $path)
+
+# Keybindings
+bindkey -v '^?' backward-delete-char
+bindkey '^P' history-search-backward
+bindkey '^N' history-search-forward
+
+# Aliases
+alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
+alias tree="tree -F --dirsfirst --noreport"
+alias ls="ls -F"
+
+# Completion setup
+fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
+autoload -Uz compinit && compinit -d "$XDG_CACHE_HOME/.zcompdump"
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/.zcompcache"
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:*' fzf-flags \
+    --no-info --no-separator --pointer='' --marker='  ' --color=fg:15,bg+:8
+
+# Enable plugins
+plug "zsh-users/zsh-syntax-highlighting"
+plug "Aloxaf/fzf-tab"
