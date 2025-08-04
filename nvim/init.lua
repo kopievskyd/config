@@ -1,8 +1,6 @@
 require("loader").setup()
 
 local opt = vim.opt
-
--- options
 opt.clipboard = "unnamedplus"
 opt.completeopt = { "menuone", "noinsert", "fuzzy" }
 opt.hlsearch = false
@@ -27,23 +25,15 @@ opt.undolevels = 100000
 opt.wildignore:append({ "*/.git/*" })
 
 local g = vim.g
-
--- disable providers
 g.loaded_python3_provider = 0
 g.loaded_ruby_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_node_provider = 0
-
--- netrw settings
 g.netrw_banner = 0
 g.netrw_fastbrowse = 0
-
--- set leader key
 g.mapleader = ","
 
 local map = vim.keymap.set
-
--- keymaps
 map({ "n", "v" }, "j", [[v:count?'j':'gj']], { expr = true })
 map({ "n", "v" }, "k", [[v:count?'k':'gk']], { expr = true })
 map("n", "n", "nzzzv", { desc = "Next search result (centered)" })
@@ -55,8 +45,6 @@ map("n", "<leader>ff", ":Pick files<CR>", { desc = "Open files picker" })
 map("n", "<leader>fg", ":Pick grep_live<CR>", { desc = "Open grep_live picker" })
 
 local autocmd = vim.api.nvim_create_autocmd
-
--- highlight on yank
 autocmd("TextYankPost", {
 	callback = function()
 		vim.hl.on_yank()
