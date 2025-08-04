@@ -1,4 +1,4 @@
-# cli tools
+# CLI tools
 brew "git"
 brew "fzf"
 brew "wget"
@@ -8,7 +8,7 @@ brew "ripgrep"
 brew "neovim"
 brew "pinentry-mac"
 
-# dev tools
+# Dev tools
 brew "node"
 brew "go"
 brew "lua-language-server"
@@ -16,7 +16,7 @@ brew "stylua"
 brew "shfmt"
 brew "beautysh"
 
-# applications
+# Applications
 cask "syncthing-app"
 cask "pika"
 cask "transmission"
@@ -31,10 +31,10 @@ cask "firefox"
 cask "obsidian"
 cask "ghostty@tip"
 
-# app store apps
+# App Store apps
 mas "WireGuard", id: 1451685025
 
-# vscode extensions
+# VSCode extensions
 vscode "pkief.material-icon-theme"
 vscode "usernamehw.errorlens"
 vscode "vscodevim.vim"
